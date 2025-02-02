@@ -6,12 +6,20 @@ import Footer from "./Footer";
 
 function App() {
   return (
-    <>
-      <h1>Hello World!</h1>
+   <div>
+    <div className="min-h-screen flex flex-col">
+      {/* Header Section */}
       <Header />
-      <MidSection />
+
+      {/* Main Content Section */}
+      <div className="flex-grow">
+        <MidSection />
+      </div>
+
+      {/* Footer Section */}
       <Footer />
-    </>
+    </div>
+    </div>
   );
 }
 

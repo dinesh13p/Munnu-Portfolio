@@ -26,7 +26,7 @@ function MidSection() {
             </button>
             {drawers[index] && (
               <div className="mt-2 bg-white p-2 rounded-lg">
-                <p>Info, images, and links go here.</p>
+                <p className="text-black">Info, images, and links go here.</p>
               </div>
             )}
           </div>

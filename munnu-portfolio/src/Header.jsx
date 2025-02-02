@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 
 function Header() {
@@ -12,12 +12,12 @@ function Header() {
       </div>
 
       {/* Letter-shaped box */}
-      <div
-        className="bg-white p-2 rounded-lg shadow-lg cursor-pointer"
+       <div
+        className="bg-white  text-black p-2 rounded-lg shadow-lg cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <div className="text-sm">
+          <div className="text-sm" >
             Hi, I'm the Sandhya Paudel! Welcome to my portfolio.
           </div>
         ) : (
