@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative paths for GitHub Pages
+  base: '/Portfolio/', // Changed from './' to '/Portfolio/' for GitHub Pages
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -13,7 +13,7 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           // Keep original names for specific files
-          if (assetInfo.name === 'SandhyaResume.pdf' || 
+          if (assetInfo.name === 'SandhyaResume.pdf' ||
               assetInfo.name === 'SummerTimeSadness.mp3' ||
               assetInfo.name?.startsWith('photo')) {
             return `assets/${assetInfo.name}`;
