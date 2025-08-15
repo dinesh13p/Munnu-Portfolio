@@ -8,11 +8,14 @@ const FloatingElements = ({ isPlaying = false, setIsPlaying = () => {} }) => {
     if (!audio) return;
 
     if (isPlaying) {
-      audio.play().catch(console.error);
+      audio.play().catch((error) => {
+        console.error("Error playing audio:", error);
+        setIsPlaying(false); // Reset if audio fails to play
+      });
     } else {
       audio.pause();
     }
-  }, [isPlaying]);
+  }, [isPlaying, setIsPlaying]);
 
   const toggleMusic = () => {
     setIsPlaying(!isPlaying);
@@ -26,7 +29,7 @@ const FloatingElements = ({ isPlaying = false, setIsPlaying = () => {} }) => {
         loop
         preload="auto"
       >
-        <source src="/src/assets/SummerTimeSadness.mp3" type="audio/mpeg" />
+        <source src="/Portfolio/assets/SummerTimeSadness.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
