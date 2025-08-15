@@ -26,7 +26,7 @@ const Footer = ({ hearts = [], isPlaying = false, setIsPlaying = () => {} }) => 
         loop
         preload="auto"
       >
-        <source src="/src/assets/SummerTimeSadness.mp3" type="audio/mpeg" />
+        <source src="/Portfolio/assets/SummerTimeSadness.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 

@@ -6,14 +6,14 @@ const GalleryBox = ({ open, toggle }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState({});
   
-  // Photo paths - using correct paths for Vite/React build
+  // Photo paths - using correct paths for GitHub Pages
   const photos = [
-    { src: "/src/assets/photo1.jpg", alt: "Photo 1" },
-    { src: "/src/assets/photo2.jpg", alt: "Photo 2" },
-    { src: "/src/assets/photo3.jpg", alt: "Photo 3" },
-    { src: "/src/assets/photo4.jpg", alt: "Photo 4" },
-    { src: "/src/assets/photo5.jpg", alt: "Photo 5" },
-    { src: "/src/assets/photo6.jpg", alt: "Photo 6" }
+    { src: "/Portfolio/assets/Photo1.jpg", alt: "Photo 1" },
+    { src: "/Portfolio/assets/Photo2.jpg", alt: "Photo 2" },
+    { src: "/Portfolio/assets/Photo3.jpg", alt: "Photo 3" },
+    { src: "/Portfolio/assets/Photo4.jpg", alt: "Photo 4" },
+    { src: "/Portfolio/assets/Photo5.jpg", alt: "Photo 5" },
+    { src: "/Portfolio/assets/Photo6.jpg", alt: "Photo 6" }
   ];
   
   const openModal = (photo, index) => {

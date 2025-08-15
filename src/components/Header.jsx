@@ -13,24 +13,13 @@ const Header = ({ letterOpen, setLetterOpen }) => {
           <div className="relative z-40">
             <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-white/70 shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white">
               <img 
-                src="/src/assets/ProfilePicture.jpg" 
+                src="/Portfolio/assets/ProfilePicture.jpg" 
                 alt="Sandhya Paudel" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
-                  console.log('Image failed to load, trying alternative paths...');
-                  const alternatives = [
-                    './src/assets/ProfilePicture.jpg',
-                    'src/assets/ProfilePicture.jpg',
-                    'assets/ProfilePicture.jpg',
-                    './assets/ProfilePicture.jpg'
-                  ];
-                  let currentIndex = alternatives.indexOf(e.target.src.split('/').slice(-3).join('/'));
-                  if (currentIndex < alternatives.length - 1) {
-                    e.target.src = alternatives[currentIndex + 1];
-                  } else {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center text-4xl md:text-5xl">👤</div>';
-                  }
+                  console.log('Image failed to load');
+                  e.target.style.display = 'none';
+                  e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center text-4xl md:text-5xl">👤</div>';
                 }}
               />
             </div>

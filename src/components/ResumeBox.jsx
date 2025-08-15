@@ -5,63 +5,40 @@ const ResumeBox = ({ open, toggle }) => {
   const [downloadStatus, setDownloadStatus] = useState("");
   const [viewStatus, setViewStatus] = useState("");
 
-  // Try multiple possible paths for the resume
-  const resumePaths = [
-    "/src/assets/SandhyaResume.pdf",
-    "./src/assets/SandhyaResume.pdf", 
-    "src/assets/SandhyaResume.pdf",
-    "./assets/SandhyaResume.pdf",
-    "assets/SandhyaResume.pdf"
-  ];
+  // Correct path for GitHub Pages
+  const resumePath = "/Portfolio/assets/SandhyaResume.pdf";
 
   const downloadCV = async (e) => {
     e.stopPropagation();
     setDownloadStatus("downloading");
 
-    let success = false;
-    
-    for (const path of resumePaths) {
-      try {
-        const response = await fetch(path);
+    try {
+      const response = await fetch(resumePath);
+      
+      if (response.ok) {
+        const blob = await response.blob();
         
-        if (response.ok) {
-          // Check if the response is actually a PDF
-          const contentType = response.headers.get('content-type');
-          if (!contentType || !contentType.includes('application/pdf')) {
-            console.warn(`File at ${path} is not a PDF, trying next path...`);
-            continue;
-          }
-          
-          const blob = await response.blob();
-          
-          // Verify the blob is not empty
-          if (blob.size === 0) {
-            console.warn(`PDF file at ${path} is empty, trying next path...`);
-            continue;
-          }
-          
-          const url = window.URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = url;
-          link.download = "Sandhya_Paudel_Resume.pdf";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          window.URL.revokeObjectURL(url);
-
-          setDownloadStatus("success");
-          setTimeout(() => setDownloadStatus(""), 2000);
-          success = true;
-          break;
+        // Verify the blob is not empty
+        if (blob.size === 0) {
+          throw new Error("PDF file is empty");
         }
-      } catch (error) {
-        console.error(`Error fetching from ${path}:`, error);
-        continue;
+        
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "Sandhya_Paudel_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+
+        setDownloadStatus("success");
+        setTimeout(() => setDownloadStatus(""), 2000);
+      } else {
+        throw new Error("File not found");
       }
-    }
-    
-    if (!success) {
-      console.error("Resume file not found in any of the expected locations");
+    } catch (error) {
+      console.error("Error downloading resume:", error);
       setDownloadStatus("error");
       setTimeout(() => setDownloadStatus(""), 3000);
     }
@@ -71,47 +48,30 @@ const ResumeBox = ({ open, toggle }) => {
     e.stopPropagation();
     setViewStatus("loading");
 
-    let success = false;
-    
-    for (const path of resumePaths) {
-      try {
-        const response = await fetch(path);
+    try {
+      const response = await fetch(resumePath);
+      
+      if (response.ok) {
+        const blob = await response.blob();
         
-        if (response.ok) {
-          // Check if the response is actually a PDF
-          const contentType = response.headers.get('content-type');
-          if (!contentType || !contentType.includes('application/pdf')) {
-            console.warn(`File at ${path} is not a PDF, trying next path...`);
-            continue;
-          }
-          
-          const blob = await response.blob();
-          
-          // Verify the blob is not empty
-          if (blob.size === 0) {
-            console.warn(`PDF file at ${path} is empty, trying next path...`);
-            continue;
-          }
-          
-          const url = window.URL.createObjectURL(blob);
-          window.open(url, '_blank');
-          
-          // Clean up the URL after a delay
-          setTimeout(() => window.URL.revokeObjectURL(url), 1000);
-          
-          setViewStatus("success");
-          setTimeout(() => setViewStatus(""), 2000);
-          success = true;
-          break;
+        // Verify the blob is not empty
+        if (blob.size === 0) {
+          throw new Error("PDF file is empty");
         }
-      } catch (error) {
-        console.error(`Error viewing from ${path}:`, error);
-        continue;
+        
+        const url = window.URL.createObjectURL(blob);
+        window.open(url, '_blank');
+        
+        // Clean up the URL after a delay
+        setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+        
+        setViewStatus("success");
+        setTimeout(() => setViewStatus(""), 2000);
+      } else {
+        throw new Error("File not found");
       }
-    }
-    
-    if (!success) {
-      console.error("Resume file not found in any of the expected locations");
+    } catch (error) {
+      console.error("Error viewing resume:", error);
       setViewStatus("error");
       setTimeout(() => setViewStatus(""), 3000);
     }
@@ -251,7 +211,7 @@ const ResumeBox = ({ open, toggle }) => {
 
                 {(downloadStatus === "error" || viewStatus === "error") && (
                   <p className="text-rose-600/80 text-xs mt-2">
-                    Resume file not available. Please ensure SandhyaResume.pdf is in the src/assets folder.
+                    Resume file not available. Please ensure SandhyaResume.pdf is in the public/assets folder.
                   </p>
                 )}
               </div>
