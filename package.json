@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://dinesh13p.github.io/Munnu-Portfolio",
-  "description": "Professional portfolio website for Sandhya Paudel",
-  "author": "Sandhya Paudel",
+  "homepage": "https://paudelsandhya.github.io/Portfolio",
+  "description": "Professional portfolio website for Sandhya Poudel",
+  "author": "Sandhya Poudel",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
