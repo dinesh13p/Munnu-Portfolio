@@ -1,7 +1,41 @@
-# This is the official portfolio website of Sandhya Paudel
+\## 🚀 Technologies Used
 
-This portfolio website is designed by *Sandhya Paudel* and developed by *Dinesh Poudel*.
+\- HTML5
+
+\- CSS3
+
+\- JavaScript
+
+\- Tailwind CSS
+
+\- Vite
+
+\- PostCSS
+
+
+
+\## 📫 Contact Information
+
+\-  \*\*Email\*\*: paudelsandhya9b@gmail.com
+
+\- \*\*GitHub\*\*: \[@paudelsandhya](https://github.com/paudelsandhya)
+
+\- \*\*Portfolio\*\*: \[Live Demo](https://paudelsandhya.github.io/Portfolio/)
+
+
+
+\## 📄 Design and Development
+
+This portfolio website is designed by Sandhya Paudel and developed by Dinesh Poudel.
 
 Contact Dinesh Poudel through:
-- https://www.dinesh2004.com.np
-- Email: dineshp4297501@gmail.com
+
+* \*\*Email\*\*: dineshp4297501@gmail.com
+* \*\*Website\*\*: \[Live](https://www.dinesh2004.com.np)
+
+
+
+---
+
+\*Last updated: August 2025 | Improved by @dinesh13p\*
+
